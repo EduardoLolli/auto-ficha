@@ -1,0 +1,312 @@
+{
+  "jogador": "John Doe",
+  "nome": "Aragorn",
+  "nivel": 8,
+  "raca": "Humano",
+  "classe": "Guerreiro",
+  "XP": 1500,
+  "tamanho": "Médio",
+  "alinhamento": "Neutro Bom",
+  "divindade": "Tyr",
+  "atributos": {
+    "forca": 18,
+    "destreza": 14,
+    "constituicao": 16,
+    "inteligencia": 12,
+    "sabedoria": 10,
+    "carisma": 13
+  },
+  "HP": 45,
+  "magias": [
+    {
+      "nome": "Toque Chocante",
+      "escola": "Evocação",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Um toque que causa 1d8 de dano elétrico.",
+      "duração": "Instantânea",
+      "nivel": 0
+    },
+    {
+      "nome": "Armadura Arcana",
+      "escola": "Abjuração",
+      "alcance": "Pessoal",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pedaço de couro curado)",
+      "descrição": "Cria uma armadura mágica que concede +3 de CA.",
+      "duração": "8 horas",
+      "nivel": 1
+    },
+    {
+      "nome": "Névoa Obscurecente",
+      "escola": "Conjuração",
+      "alcance": "120 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Cria uma área de névoa que obscurece a visão.",
+      "duração": "Concentração, até 1 hora",
+      "nivel": 1
+    },
+    {
+      "nome": "Arma Espiritual",
+      "escola": "Evocação",
+      "alcance": "60 pés",
+      "tempoDeConjuracao": "1 ação bônus",
+      "componentes": "V, S",
+      "descrição": "Cria uma arma espectral que ataca inimigos.",
+      "duração": "1 minuto",
+      "nivel": 2
+    },
+    {
+      "nome": "Chama Contínua",
+      "escola": "Evocação",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (pó de rubi)",
+      "descrição": "Cria uma chama mágica que não consome oxigênio.",
+      "duração": "Até ser dissipada",
+      "nivel": 2
+    },
+    {
+      "nome": "Círculo Mágico",
+      "escola": "Abjuração",
+      "alcance": "10 pés",
+      "tempoDeConjuracao": "1 minuto",
+      "componentes": "V, S, M (pó de prata)",
+      "descrição": "Cria um círculo que impede a entrada de criaturas extraplanares.",
+      "duração": "1 hora",
+      "nivel": 3
+    },
+    {
+      "nome": "Porta Dimensional",
+      "escola": "Conjuração",
+      "alcance": "500 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V",
+      "descrição": "Teletransporta o conjurador para um local visível.",
+      "duração": "Instantânea",
+      "nivel": 4
+    },
+    {
+      "nome": "Muralha de Pedra",
+      "escola": "Conjuração",
+      "alcance": "120 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (pedra)",
+      "descrição": "Cria uma muralha de pedra que pode ser moldada.",
+      "duração": "Concentração, até 10 minutos",
+      "nivel": 5
+    },
+    {
+      "nome": "Cura Completa",
+      "escola": "Evocação",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Cura todos os pontos de vida de uma criatura.",
+      "duração": "Instantânea",
+      "nivel": 6
+    },
+    {
+      "nome": "Prisão de Energia",
+      "escola": "Abjuração",
+      "alcance": "30 pés",
+      "tempoDeConjuracao": "1 minuto",
+      "componentes": "V, S, M (um cristal)",
+      "descrição": "Cria uma prisão mágica que impede a fuga de uma criatura.",
+      "duração": "1 hora",
+      "nivel": 7
+    },
+    {
+      "nome": "Terremoto",
+      "escola": "Evocação",
+      "alcance": "500 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pedaço de terra)",
+      "descrição": "Causa um terremoto que danifica estruturas e criaturas.",
+      "duração": "Concentração, até 1 minuto",
+      "nivel": 8
+    },
+    {
+      "nome": "Desejo",
+      "escola": "Conjuração",
+      "alcance": "Pessoal",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V",
+      "descrição": "Realiza qualquer desejo do conjurador.",
+      "duração": "Instantânea",
+      "nivel": 9
+    },
+    {
+      "nome": "Tempestade de Gelo",
+      "escola": "Evocação",
+      "alcance": "300 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (pedaços de gelo)",
+      "descrição": "Cria uma tempestade de gelo que causa 4d6 de dano de frio.",
+      "duração": "Instantânea",
+      "nivel": 4
+    },
+    {
+      "nome": "Campo Antimagia",
+      "escola": "Abjuração",
+      "alcance": "Pessoal",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pequeno pedaço de ferro)",
+      "descrição": "Cria uma área onde a magia não funciona.",
+      "duração": "Concentração, até 1 hora",
+      "nivel": 8
+    },
+    {
+      "nome": "Explosão de Chamas",
+      "escola": "Evocação",
+      "alcance": "150 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pedaço de enxofre)",
+      "descrição": "Cria uma explosão de chamas que causa 10d6 de dano de fogo.",
+      "duração": "Instantânea",
+      "nivel": 5
+    },
+    {
+      "nome": "Luz",
+      "escola": "Evocação",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, M (um vaga-lume ou musgo fosforescente)",
+      "descrição": "Faz um objeto brilhar com luz brilhante em um raio de 20 pés.",
+      "duração": "1 hora",
+      "nivel": 0
+    },
+    {
+      "nome": "Mãos Mágicas",
+      "escola": "Conjuração",
+      "alcance": "30 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Cria uma mão espectral que pode manipular objetos.",
+      "duração": "1 minuto",
+      "nivel": 0
+    },
+    {
+      "nome": "Raio de Gelo",
+      "escola": "Evocação",
+      "alcance": "60 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Um raio de gelo que causa 1d8 de dano de frio e reduz a velocidade do alvo em 10 pés.",
+      "duração": "Instantânea",
+      "nivel": 0
+    },
+    {
+      "nome": "Mísseis Mágicos",
+      "escola": "Evocação",
+      "alcance": "120 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Três dardos mágicos que causam 1d4+1 de dano de força cada.",
+      "duração": "Instantânea",
+      "nivel": 1
+    },
+    {
+      "nome": "Cura Leve",
+      "escola": "Evocação",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Cura 1d8+1 pontos de vida.",
+      "duração": "Instantânea",
+      "nivel": 1
+    },
+    {
+      "nome": "Mãos Flamejantes",
+      "escola": "Evocação",
+      "alcance": "15 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Um cone de fogo que causa 3d6 de dano de fogo.",
+      "duração": "Instantânea",
+      "nivel": 1
+    },
+    {
+      "nome": "Escudo Arcano",
+      "escola": "Abjuração",
+      "alcance": "Pessoal",
+      "tempoDeConjuracao": "1 reação",
+      "componentes": "V, S",
+      "descrição": "Aumenta a CA em +5 até o início do próximo turno.",
+      "duração": "1 rodada",
+      "nivel": 1
+    },
+    {
+      "nome": "Invisibilidade",
+      "escola": "Ilusão",
+      "alcance": "Toque",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um olho de gato e uma pitada de pó)",
+      "descrição": "Torna o alvo invisível por até 1 hora.",
+      "duração": "1 hora",
+      "nivel": 2
+    },
+    {
+      "nome": "Bola de Fogo",
+      "escola": "Evocação",
+      "alcance": "150 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (uma pitada de enxofre)",
+      "descrição": "Uma bola de fogo que causa 8d6 de dano de fogo.",
+      "duração": "Instantânea",
+      "nivel": 3
+    },
+    {
+      "nome": "Relâmpago",
+      "escola": "Evocação",
+      "alcance": "100 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pedaço de pele e uma vara de vidro)",
+      "descrição": "Um relâmpago que causa 8d6 de dano elétrico.",
+      "duração": "Instantânea",
+      "nivel": 3
+    },
+    {
+      "nome": "Muralha de Fogo",
+      "escola": "Evocação",
+      "alcance": "120 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (um pequeno pedaço de fósforo)",
+      "descrição": "Cria uma muralha de fogo que causa 5d8 de dano de fogo a criaturas que a atravessam.",
+      "duração": "Concentração, até 1 minuto",
+      "nivel": 4
+    },
+    {
+      "nome": "Globo de Invulnerabilidade",
+      "escola": "Abjuração",
+      "alcance": "Pessoal",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (uma pequena esfera de cristal)",
+      "descrição": "Cria uma barreira mágica que impede a entrada de magias de nivel 5 ou inferior.",
+      "duração": "Concentração, até 1 minuto",
+      "nivel": 6
+    },
+    {
+      "nome": "Teletransporte",
+      "escola": "Conjuração",
+      "alcance": "10 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S",
+      "descrição": "Teletransporta o conjurador e até 8 criaturas voluntárias para um local conhecido.",
+      "duração": "Instantânea",
+      "nivel": 7
+    },
+    {
+      "nome": "Explosão Solar",
+      "escola": "Evocação",
+      "alcance": "150 pés",
+      "tempoDeConjuracao": "1 ação",
+      "componentes": "V, S, M (pó de diamante)",
+      "descrição": "Uma explosão de luz solar que causa 12d6 de dano radiante e cega as criaturas na área.",
+      "duração": "Instantânea",
+      "nivel": 8
+    }
+  ]
+}
