@@ -10,7 +10,7 @@ const HomeMain = (
         <div className="p-5 bg-indigo-800 border-b-2 border-indigo-900">
           <div className="flex items-center">
             <img
-              src="https://images.unsplash.com/photo-1565316151047-153c2e5c0925?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+              src="https://pm1.aminoapps.com/7147/428efb63b5961cc5bb6f312239ef1242a2c2dcc1r1-564-612v2_hq.jpg"
               alt="Thorne"
               className="w-16 h-16 object-cover rounded-full border-2 border-amber-500"
             />
@@ -109,7 +109,7 @@ const HomeMain = (
             <div className="bg-indigo-900 bg-opacity-60 rounded-lg p-4 border border-indigo-700 hover:border-amber-500 transition-colors duration-300 transform hover:scale-[1.02]">
               <div className="mb-4 overflow-hidden rounded-lg h-80">
                 <img
-                  src="https://images.unsplash.com/photo-1565316151047-153c2e5c0925?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                  src="https://pm1.aminoapps.com/7147/428efb63b5961cc5bb6f312239ef1242a2c2dcc1r1-564-612v2_hq.jpg"
                   alt="Thorne"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
