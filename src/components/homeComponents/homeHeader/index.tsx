@@ -1,4 +1,4 @@
-import StyledHeader from "../../../styles/components/homePage/styledHeader";
+import StyledHeader from "../../../styles/components/styledHeader";
 
 const HomeHeader = () => {
   return (

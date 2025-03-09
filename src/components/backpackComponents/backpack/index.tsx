@@ -1,4 +1,4 @@
-import StyledBackpack from "../../../styles/components/homePage/backpack";
+import StyledBackpack from "../../../styles/components/backpack";
 import './style.css'
 const Backpack = () => {
   return (

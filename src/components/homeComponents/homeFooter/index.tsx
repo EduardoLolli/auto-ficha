@@ -1,4 +1,4 @@
-import StyledFooter from "../../../styles/components/homePage/styledFooter";
+import StyledFooter from "../../../styles/components/styledFooter";
 
 const HomeFooter = () => {
   return (
