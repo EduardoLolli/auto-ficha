@@ -1,0 +1,433 @@
+{
+    "id": 1,
+    "personagem": {
+        "nome": "Aelindor Sombra da Lua",
+        "raca": "Elfo",
+        "classe": "Mago",
+        "nivel": 6,
+        "idade": 120,
+        "alinhamento": "Neutro e Bom",
+        "divindade": "Mystra, Deusa da Magia",
+        "hp": "42",
+        "experiencia": "10000",
+        "historia": "Aelindor cresceu nas profundezas da Floresta de Lysandor, onde aprendeu os segredos da magia ancestral. Ele busca conhecimento para proteger sua terra natal de ameaças sombrias.",
+        "personalidade": "Curioso e sábio, Aelindor é um elfo paciente e estrategista, mas pode ser um tanto reservado.",
+        "caracteristicas": [
+            "Olhos brilhantes",
+            "Cabelos prateados",
+            "Tatuagens mágicas"
+        ]
+    },
+    "biografia": {
+        "origem": "Floresta de Lysandor"
+    },
+    "ficha": {
+        "pontosDeVida": 42,
+        "pontosDeMana": 100,
+        "atributos": {
+            "forca": 8,
+            "destreza": 14,
+            "constituicao": 12,
+            "inteligencia": 18,
+            "sabedoria": 15,
+            "carisma": 10
+        },
+        "defesa": 15,
+        "iniciativa": 3
+    },
+    "mochila": {
+        "capacidadeMaxima": 50,
+        "itens": {
+            "Armadura": [
+                {
+                    "id": 17,
+                    "nome": "Armadura de Couro Reforçado",
+                    "quantidade": 1,
+                    "descricao": "Uma armadura leve feita de couro tratado, concede +3 de defesa e não penaliza movimentação.",
+                    "modificadorCA": 3,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 1,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 18,
+                    "nome": "Peitoral de Aço Rúnico",
+                    "quantidade": 1,
+                    "descricao": "Um peitoral gravado com runas mágicas, concede +5 de defesa e resistência a dano mágico.",
+                    "modificadorCA": 5,
+                    "resistencia": {
+                        "fogo": 2,
+                        "frio": 2,
+                        "eletricidade": 2,
+                        "veneno": 1
+                    }
+                },
+                {
+                    "id": 19,
+                    "nome": "Manto da Invisibilidade",
+                    "quantidade": 1,
+                    "descricao": "Um manto que permite ao usuário ficar invisível por 30 segundos (recarga de 5 minutos).",
+                    "modificadorCA": 1,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 20,
+                    "nome": "Elmo do Berserker",
+                    "quantidade": 1,
+                    "descricao": "Um elmo que aumenta o dano físico em 15%, mas reduz a defesa em 5.",
+                    "modificadorCA": -2,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 21,
+                    "nome": "Luvas de Ferro",
+                    "quantidade": 1,
+                    "descricao": "Luvas que aumentam o dano de ataques corpo a corpo em 10%.",
+                    "modificadorCA": 1,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 1,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 22,
+                    "nome": "Escudo do Guardião",
+                    "quantidade": 1,
+                    "descricao": "Um escudo pesado que concede +7 de defesa e bloqueia 20% do dano recebido.",
+                    "modificadorCA": 7,
+                    "resistencia": {
+                        "fogo": 1,
+                        "frio": 1,
+                        "eletricidade": 1,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 23,
+                    "nome": "Grevas da Agilidade",
+                    "quantidade": 1,
+                    "descricao": "Grevas que aumentam a destreza em +2 e a velocidade de movimento em 10%.",
+                    "modificadorCA": 2,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 24,
+                    "nome": "Capa do Vento",
+                    "quantidade": 1,
+                    "descricao": "Uma capa que reduz o dano de ataques à distância em 15% e aumenta a esquiva em 5%.",
+                    "modificadorCA": 2,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 25,
+                    "nome": "Cinto do Gigante",
+                    "quantidade": 1,
+                    "descricao": "Um cinto que aumenta a força em +3, mas reduz a destreza em -1.",
+                    "modificadorCA": 0,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 0
+                    }
+                },
+                {
+                    "id": 26,
+                    "nome": "Amuleto de Proteção",
+                    "quantidade": 1,
+                    "descricao": "Um amuleto que concede resistência a efeitos de controle (como atordoamento ou congelamento).",
+                    "modificadorCA": 0,
+                    "resistencia": {
+                        "fogo": 0,
+                        "frio": 0,
+                        "eletricidade": 0,
+                        "veneno": 2
+                    }
+                }
+            ],
+            "Arma": [
+                {
+                    "id": 5,
+                    "nome": "Cajado Arcano",
+                    "quantidade": 1,
+                    "descricao": "Um cajado que amplifica o poder mágico, aumenta o dano de feitiços em 10%.",
+                    "dano": {
+                        "dadoQuantidade": 1,
+                        "tipoDado": 8,
+                        "bonus": 0
+                    },
+                    "bonus": {
+                        "forca": 0,
+                        "destreza": 0,
+                        "constituicao": 0,
+                        "inteligencia": 2,
+                        "sabedoria": 0,
+                        "carisma": 0
+                    }
+                },
+                {
+                    "id": 11,
+                    "nome": "Adaga de Gelo",
+                    "quantidade": 1,
+                    "descricao": "Uma adaga que causa dano de gelo adicional (1d6).",
+                    "dano": {
+                        "dadoQuantidade": 1,
+                        "tipoDado": 4,
+                        "bonus": 0
+                    },
+                    "bonus": {
+                        "forca": 0,
+                        "destreza": 0,
+                        "constituicao": 0,
+                        "inteligencia": 0,
+                        "sabedoria": 0,
+                        "carisma": 0
+                    },
+                    "efeitoEspecial": {
+                        "dadoQuantidade": 1,
+                        "tipoDado": 6,
+                        "bonus": 0
+                    }
+                },
+                {
+                    "id": 12,
+                    "nome": "Arco Longo Élfico",
+                    "quantidade": 1,
+                    "descricao": "Um arco preciso que aumenta a chance de acerto crítico em 5%.",
+                    "dano": {
+                        "dadoQuantidade": 1,
+                        "tipoDado": 8,
+                        "bonus": 0
+                    },
+                    "bonus": {
+                        "forca": 0,
+                        "destreza": 1,
+                        "constituicao": 0,
+                        "inteligencia": 0,
+                        "sabedoria": 0,
+                        "carisma": 0
+                    }
+                }
+            ],
+            "EquipamentosDeMao": [
+                {
+                    "id": 27,
+                    "nome": "Escudo de Madeira",
+                    "quantidade": 1,
+                    "descricao": "Um escudo básico feito de madeira resistente, concede +2 de CA.",
+                    "modificadorCA": 2,
+                    "efeitos": [
+                        "Bloqueia 10% do dano físico recebido"
+                    ]
+                },
+                {
+                    "id": 28,
+                    "nome": "Tocha",
+                    "quantidade": 1,
+                    "descricao": "Uma tocha que ilumina áreas escuras em um raio de 10 metros.",
+                    "efeitos": [
+                        "Iluminação: 10m",
+                        "Duração: 1 hora"
+                    ]
+                },
+                {
+                    "id": 29,
+                    "nome": "Kit de Ferramentas do Ladrão",
+                    "quantidade": 1,
+                    "descricao": "Um kit com ferramentas para abrir fechaduras, desarmar armadilhas e realizar outras tarefas de ladinagem.",
+                    "efeitos": [
+                        "+2 em testes de Ladinagem"
+                    ]
+                },
+                {
+                    "id": 30,
+                    "nome": "Orbe Arcano",
+                    "quantidade": 1,
+                    "descricao": "Um orbe mágico que amplifica o poder de feitiços, concedendo +1 em testes de magia.",
+                    "efeitos": [
+                        "+1 em testes de Magia",
+                        "Aumenta o alcance de feitiços em 5%"
+                    ]
+                },
+                {
+                    "id": 31,
+                    "nome": "Bastão de Cura",
+                    "quantidade": 1,
+                    "descricao": "Um bastão que permite ao usuário curar aliados, restaurando 2d6 de HP por uso.",
+                    "efeitos": [
+                        {
+                            "dadoQuantidade": 2,
+                            "tipoDado": 6,
+                            "bonus": 0
+                        },
+                        "Usos: 3 por dia"
+                    ]
+                },
+                {
+                    "id": 32,
+                    "nome": "Lanterna Mágica",
+                    "quantidade": 1,
+                    "descricao": "Uma lanterna que nunca se apaga e ilumina áreas escuras em um raio de 15 metros.",
+                    "efeitos": [
+                        "Iluminação: 15m",
+                        "Não consome combustível"
+                    ]
+                },
+                {
+                    "id": 33,
+                    "nome": "Escudo de Aço",
+                    "quantidade": 1,
+                    "descricao": "Um escudo pesado que concede +4 de CA e resistência a dano físico.",
+                    "modificadorCA": 4,
+                    "resistencia": {
+                        "fisico": 2
+                    },
+                    "efeitos": [
+                        "Bloqueia 15% do dano físico recebido"
+                    ]
+                },
+                {
+                    "id": 34,
+                    "nome": "Cajado de Proteção",
+                    "quantidade": 1,
+                    "descricao": "Um cajado que concede +2 de CA e resistência a dano mágico.",
+                    "modificadorCA": 2,
+                    "resistencia": {
+                        "magico": 2
+                    },
+                    "efeitos": [
+                        "Reduz dano mágico em 10%"
+                    ]
+                },
+                {
+                    "id": 35,
+                    "nome": "Mapa Antigo",
+                    "quantidade": 1,
+                    "descricao": "Um mapa que revela locais secretos e tesouros escondidos.",
+                    "efeitos": [
+                        "Revela locais secretos em um raio de 1km"
+                    ]
+                },
+                {
+                    "id": 36,
+                    "nome": "Bússola Mágica",
+                    "quantidade": 1,
+                    "descricao": "Uma bússola que sempre aponta na direção correta, mesmo em áreas com magia de confusão.",
+                    "efeitos": [
+                        "Imune a efeitos de desorientação"
+                    ]
+                }
+            ],
+            "Consumivel": [
+                {
+                    "id": 1,
+                    "nome": "Poção de Cura",
+                    "quantidade": 3,
+                    "descricao": "Restaura 10 pontos de vida."
+                },
+                {
+                    "id": 6,
+                    "nome": "Poção de Mana",
+                    "quantidade": 2,
+                    "descricao": "Restaura 15 pontos de mana."
+                },
+                {
+                    "id": 13,
+                    "nome": "Elixir de Invisibilidade",
+                    "quantidade": 1,
+                    "descricao": "Torna o usuário invisível por 1 minuto."
+                },
+                {
+                    "id": 14,
+                    "nome": "Veneno Paralizante",
+                    "quantidade": 2,
+                    "descricao": "Causa paralisia no alvo por 10 segundos."
+                }
+            ],
+            "Materiais": [
+                {
+                    "id": 7,
+                    "nome": "Cristal Mágico",
+                    "quantidade": 5,
+                    "descricao": "Usado para fabricar itens mágicos."
+                },
+                {
+                    "id": 8,
+                    "nome": "Pele de Dragão",
+                    "quantidade": 1,
+                    "descricao": "Material raro para criar armaduras resistentes."
+                },
+                {
+                    "id": 15,
+                    "nome": "Ervas Medicinais",
+                    "quantidade": 10,
+                    "descricao": "Usadas para criar poções de cura."
+                },
+                {
+                    "id": 16,
+                    "nome": "Minério de Ferro",
+                    "quantidade": 20,
+                    "descricao": "Usado para forjar armas e armaduras."
+                }
+            ]
+        }
+    },
+    "feiticos": [
+        {
+            "id": 1,
+            "nome": "Bola de Fogo",
+            "nivel": 3,
+            "custoDeMana": 15,
+            "descricao": "Conjura uma esfera de fogo que causa 8d6 de dano em uma área.",
+            "dano": {
+                "dadoQuantidade": 8,
+                "tipoDado": 6,
+                "bonus": 0
+            }
+        },
+        {
+            "id": 2,
+            "nome": "Escudo Arcano",
+            "nivel": 2,
+            "custoDeMana": 10,
+            "descricao": "Cria uma barreira mágica que aumenta a defesa em +5 por 1 minuto."
+        }
+    ],
+    "habilidades": [
+        {
+            "id": 1,
+            "nome": "Foco Mágico",
+            "descricao": "Aumenta a precisão de feitiços em 10%."
+        },
+        {
+            "id": 2,
+            "nome": "Resistência Elemental",
+            "descricao": "Reduz dano elemental recebido em 20%."
+        }
+    ]
+}
