@@ -1,21 +1,12 @@
 import { useContext } from "react";
-import "./style.css"
+import "./style.css";
 import { AutoFichaContext } from "../../context/generalContext";
+import CharacterContainer from "../characterContainer";
 const CharacterBio = () => {
-
   const { character } = useContext(AutoFichaContext);
   const characterInfo = character?.personagem;
   return (
-    <div className="flex-1 bg-gray-900 bg-opacity-70 rounded-lg border-2 border-indigo-700 p-6 overflow-y-auto">
-      <div className="mb-6">
-        <h2 className="text-3xl font-bold text-white border-b-2 border-amber-500 pb-2 flex items-center">
-          <span className="material-symbols-outlined mr-3 text-amber-500">
-            description
-          </span>
-          Biografia do Herói
-        </h2>
-      </div>
-
+    <CharacterContainer icone="description" texto="Biografia">
       <div className="flex mb-6">
         <div className="w-1/3 mr-6">
           <div className="bg-indigo-900 bg-opacity-60 rounded-lg p-4 border border-indigo-700 hover:border-amber-500 transition-colors duration-300 transform hover:scale-[1.02]">
@@ -26,8 +17,7 @@ const CharacterBio = () => {
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">
-            </h3>
+            <h3 className="text-xl font-bold text-white mb-2"></h3>
 
             <div className="flex justify-between text-sm text-gray-300 mb-1">
               <span>Raça:</span>
@@ -44,20 +34,21 @@ const CharacterBio = () => {
             </div>
             <div className="flex justify-between text-sm text-gray-300 mb-1">
               <span>Alinhamento:</span>
-              <span className="text-indigo-300">{characterInfo?.alinhamento}</span>
+              <span className="text-indigo-300">
+                {characterInfo?.alinhamento}
+              </span>
             </div>
             <div className="flex justify-between text-sm text-gray-300 mb-1">
               <span>Divindade:</span>
-              <span className="text-indigo-300">{characterInfo?.divindade}</span>
+              <span className="text-indigo-300">
+                {characterInfo?.divindade}
+              </span>
             </div>
-
           </div>
         </div>
         <div className="w-2/3">
           <div className="bg-indigo-900 bg-opacity-60 rounded-lg p-6 border border-indigo-700 h-full hover:border-amber-500 transition-colors duration-300">
-            <h4 className="text-xl font-bold text-amber-400 mb-4">
-              História
-            </h4>
+            <h4 className="text-xl font-bold text-amber-400 mb-4">História</h4>
             <p className="text-gray-200 mb-4 leading-relaxed">
               {characterInfo?.historia}
             </p>
@@ -70,7 +61,10 @@ const CharacterBio = () => {
             </p>
             <div className="mt-6 flex space-x-3">
               {characterInfo?.caracteristicas.map((caractersitica, index) => (
-                <span key={index} className="px-3 py-1 bg-indigo-800 text-indigo-200 rounded-full text-xs uppercase tracking-wider">
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-indigo-800 text-indigo-200 rounded-full text-xs uppercase tracking-wider"
+                >
                   {caractersitica}
                 </span>
               ))}
@@ -102,8 +96,7 @@ const CharacterBio = () => {
               <h5 className="text-white font-bold">Campeão de Avendor</h5>
             </div>
             <p className="text-gray-300 text-sm">
-              Vencedor do grande torneio do reino, ganhando reconhecimento
-              real.
+              Vencedor do grande torneio do reino, ganhando reconhecimento real.
             </p>
           </div>
           <div className="bg-gray-900 bg-opacity-70 rounded-lg p-4 border border-indigo-700 hover:border-amber-500 hover:shadow-lg hover:shadow-purple-700/30 transition-all transform hover:scale-105">
@@ -111,9 +104,7 @@ const CharacterBio = () => {
               <span className="material-symbols-outlined text-3xl text-amber-500 mr-2">
                 swords
               </span>
-              <h5 className="text-white font-bold">
-                Libertador de Eastwatch
-              </h5>
+              <h5 className="text-white font-bold">Libertador de Eastwatch</h5>
             </div>
             <p className="text-gray-300 text-sm">
               Liderou a resistência que libertou a cidade de Eastwatch dos
@@ -122,7 +113,7 @@ const CharacterBio = () => {
           </div>
         </div>
       </div>
-    </div>
+    </CharacterContainer>
   );
 };
 
