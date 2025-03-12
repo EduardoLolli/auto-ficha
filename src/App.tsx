@@ -1,10 +1,10 @@
 import "./App.css";
-import Rotas from "./routes";
+import Rotas from "./rotas/routes";
 
 function App() {
   return (
     <>
-      <Rotas/>
+      <Rotas />
     </>
   );
 }

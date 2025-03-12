@@ -1,29 +1,50 @@
 import { createContext, useState, useMemo, useEffect } from "react";
 import { IPersonagem } from "./interface";
-import dadosPersonagem from "../../dados/personagem.json"
-
+import axios from "axios";
 
 interface IAutoFichaContext {
-    character: IPersonagem;
-    setCharacter: React.Dispatch<React.SetStateAction<IPersonagem>>;
+    character: IPersonagem | null;
+    setCharacter: React.Dispatch<React.SetStateAction<IPersonagem | null>>;
+    loading: boolean;
 }
-export const AutoFichaContext = createContext({} as { character: IPersonagem; setCharacter: React.Dispatch<React.SetStateAction<IPersonagem>> });
 
-export const AutoFichaProvider = ({ children, }: { children: React.ReactNode; }) => {
+export const AutoFichaContext = createContext({} as IAutoFichaContext);
 
+export const AutoFichaProvider = ({ children }: { children: React.ReactNode }) => {
+    const [character, setCharacter] = useState<IPersonagem | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
-    
-    const [character, setCharacter] = useState<IPersonagem>({} as IPersonagem);
+    const handleGetCharacter = async (): Promise<void> => {
+        const URL = "http://localhost:3000/data";
+        try {
+            const response = await axios.get(URL);
+            setCharacter(response.data);
+            setLoading(false);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        setCharacter(dadosPersonagem as IPersonagem);
-    }
-        , [character]);
+        handleGetCharacter();
+    }, []);
 
     const value: IAutoFichaContext = useMemo(
-        () => ({ character, setCharacter }),
-        [character,]
+        () => ({
+            character, setCharacter,
+            loading
+        }),
+        [character,
+            loading
+        ]
     );
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <AutoFichaContext.Provider value={value}>
             {children}
