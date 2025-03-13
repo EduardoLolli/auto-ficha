@@ -9,7 +9,7 @@ export interface IPersonagem {
     genero: string;
     alinhamento: string;
     divindade: string;
-    hp: string;
+    hp: number;
     experiencia: string;
     historia: string;
     altura: string;
@@ -47,7 +47,10 @@ export interface IPersonagem {
   feiticos: Feitico[];
   habilidades: Habilidade[];
 }
-
+export interface IAtributos {
+  key: string;
+  valor: number;
+}
 export interface ItemArmadura {
   id: number;
   nome: string;

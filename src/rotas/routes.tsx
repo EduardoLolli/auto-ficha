@@ -20,7 +20,8 @@ const Rotas = () => {
             path="/biografia"
             element={
               <HomePage>
-                <CharacterBio></CharacterBio>
+                {" "}
+                <CharacterBio></CharacterBio>{" "}
               </HomePage>
             }
           ></Route>

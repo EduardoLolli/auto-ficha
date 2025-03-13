@@ -15,5 +15,14 @@ const StyledInformationSection = styled("div")`
   &:hover {
     border-color: #f59e0b; /* Equivalente a hover:border-amber-500 */
   }
+
+  h3 {
+    font-size: 1.25rem; /* Equivalente a text-xl */
+    font-weight: bold; /* Equivalente a font-bold */
+    color: #fbbf24; /* Equivalente a text-amber-400 */
+    margin-bottom: 0.75rem; /* Equivalente a mb-3 */
+    border-bottom: 1px solid #4338ca; /* Equivalente a border-b border-indigo-700 */
+    padding-bottom: 0.5rem; /* Equivalente a pb-2 */
+  }
 `;
 export default StyledInformationSection;

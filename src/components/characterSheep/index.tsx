@@ -1,8 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CharacterContainer from "../characterContainer";
 import InformationSection from "../informationSection";
 import "./style.css";
 import { AutoFichaContext } from "../../context/generalContext";
+import AtributesContainer, {
+  StyledMod,
+} from "../../styles/components/atributesContainer";
+import { IAtributos } from "../../context/generalContext/interface";
+import StyledHPComponent from "../../styles/components/hpComponent";
+import StyledHealthBar from "../../styles/components/hpBar";
 interface IArrayCharacter {
   key: string;
   value: React.ReactNode;
@@ -10,8 +16,8 @@ interface IArrayCharacter {
 
 const CharacterSheep = () => {
   const { character } = useContext(AutoFichaContext);
-
   const characterInfo = character?.personagem;
+  const [hp, setHp] = useState<number>();
   const arrayCharacter: IArrayCharacter[] = [
     { key: "Nome", value: characterInfo?.nome },
     { key: "Raça", value: characterInfo?.raca },
@@ -24,13 +30,30 @@ const CharacterSheep = () => {
     { key: "Altura", value: characterInfo?.altura },
     { key: "Peso", value: characterInfo?.peso },
   ];
+  const atributosArray: IAtributos[] = [
+    { key: "Força", valor: character?.ficha.atributos.forca ?? 0 },
+    { key: "Destreza", valor: character?.ficha.atributos.destreza ?? 0 },
+    {
+      key: "Constituição",
+      valor: character?.ficha.atributos.constituicao ?? 0,
+    },
+    {
+      key: "Inteligência",
+      valor: character?.ficha.atributos.inteligencia ?? 0,
+    },
+    { key: "Sabedoria", valor: character?.ficha.atributos.sabedoria ?? 0 },
+    { key: "Carisma", valor: character?.ficha.atributos.carisma ?? 0 },
+  ];
+
+  const handleChange = (e) => {
+    setHp(e.target.value);
+  };
+
   return (
     <CharacterContainer icone="person" texto="Ficha de Personagem">
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="container-grid-3">
         <InformationSection>
-          <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2">
-            Informações Básicas
-          </h3>
+          <h3>Informações Básicas</h3>
           <div className="space-y-2">
             {arrayCharacter.map((informacao, i) => (
               <div key={i} className="flex justify-between text-sm">
@@ -44,85 +67,49 @@ const CharacterSheep = () => {
         </InformationSection>
 
         <InformationSection>
-          <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2">
-            Atributos
-          </h3>
+          <h3>Atributos</h3>
 
-          <div className="grid grid-cols-2 gap-3">
-            
-            
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Força
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">18</span>
-                <span className="text-green-400 ml-1">(+4)</span>
+          <AtributesContainer>
+            {atributosArray.map((atributo, index) => (
+              <div key={index} className="atribute">
+                <span className="atribute-name">{atributo.key}</span>
+                <div className="atribute-value-div">
+                  <span className="atribute-value">{atributo.valor}</span>
+                  <StyledMod
+                    modValue={(atributo.valor - 10) / 2}
+                    className="atributes-mod"
+                  >
+                    ({(atributo.valor - 10) / 2 > 0 ? "+" : " "}
+                    {""}
+                    {Math.floor((atributo.valor - 10) / 2)})
+                  </StyledMod>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Destreza
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">14</span>
-                <span className="text-green-400 ml-1">(+2)</span>
-              </div>
-            </div>
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Constituição
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">16</span>
-                <span className="text-green-400 ml-1">(+3)</span>
-              </div>
-            </div>
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Inteligência
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">12</span>
-                <span className="text-green-400 ml-1">(+1)</span>
-              </div>
-            </div>
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Sabedoria
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">13</span>
-                <span className="text-green-400 ml-1">(+1)</span>
-              </div>
-            </div>
-            <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-inner transition-all">
-              <span className="text-xs text-gray-300 uppercase tracking-wider">
-                Carisma
-              </span>
-              <div className="flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">10</span>
-                <span className="text-gray-400 ml-1">(+0)</span>
-              </div>
-            </div>
-          </div>
+            ))}
+          </AtributesContainer>
         </InformationSection>
 
         <InformationSection>
-          <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2">
-            Status
-          </h3>
-          <div className="space-y-3">
-            <div>
-              <div className="flex justify-between text-sm text-gray-300 mb-1">
+          <h3>Status</h3>
+          <div>
+            <StyledHPComponent>
+              <div className="first-container">
                 <span>Pontos de Vida</span>
-                <span className="text-white">84/84</span>
+                <span className="text-white">
+                  <input
+                    className="HP-input"
+                    type="number"
+                    onChange={handleChange}
+                  />
+                  /84
+                </span>
               </div>
               <div className="w-full bg-gray-800 rounded-full h-3">
-                <div className="bg-gradient-to-r from-red-700 to-red-500 h-3 rounded-full w-full"></div>
+                <StyledHealthBar
+                  lifePercentage={(hp / 84) * 100}
+                ></StyledHealthBar>
               </div>
-            </div>
+            </StyledHPComponent>
 
             <div className="grid grid-cols-2 gap-3 mt-4">
               <div className="bg-indigo-800 bg-opacity-50 rounded p-2 text-center border border-indigo-600 hover:border-amber-500 transition-all">
@@ -166,7 +153,135 @@ const CharacterSheep = () => {
         </InformationSection>
       </div>
 
-      <InformationSection>
+      <div className="container-grid-3">
+        {/* <InformationSection>
+          <h3>Armadura</h3>
+          <details className="group">
+            <summary className="flex justify-between items-center cursor-pointer list-none p-2 rounded-md hover:bg-amber-50 transition-all">
+              <span className="font-bold">Selecionar Armadura</span>
+              <span className="transform group-open:rotate-180 transition-transform">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                </svg>
+              </span>
+            </summary>
+            <div className="mt-2 space-y-2 pl-4">
+              {[
+                "Nenhuma (CA +0)",
+                "Armadura Acolchoada (CA +1)",
+                "Couro (CA +2)",
+                "Cota de Malha (CA +5)",
+                "Meia-Armadura (CA +7)",
+                "Armadura Completa (CA +8)",
+              ].map((armor) => (
+                <div
+                  key={armor}
+                  className="p-2 rounded-md hover:bg-amber-100 transition-all cursor-pointer"
+                >
+                  {armor}
+                </div>
+              ))}
+            </div>
+          </details>
+          <div className="mt-4 p-3 border border-amber-200 rounded-md bg-amber-50">
+            <p className="font-bold">Armadura Atual:</p>
+            <p>Nenhuma (CA +0)</p>
+            <p className="mt-2 text-sm">Penalidade: Nenhuma</p>
+          </div>
+        </InformationSection> */}
+
+        {/* <InformationSection>
+          <h3>Arma Principal</h3>
+          <details className="group">
+            <summary className="flex justify-between items-center cursor-pointer list-none p-2 rounded-md hover:bg-amber-50 transition-all">
+              <span className="font-bold">Selecionar Arma</span>
+              <span className="transform group-open:rotate-180 transition-transform">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                </svg>
+              </span>
+            </summary>
+            <div className="mt-2 space-y-2 pl-4">
+              {[
+                "Nenhuma",
+                "Adaga (1d4)",
+                "Espada Curta (1d6)",
+                "Espada Longa (1d8)",
+                "Arco Curto (1d6)",
+                "Bordão (1d6)",
+              ].map((weapon) => (
+                <div
+                  key={weapon}
+                  className="p-2 rounded-md hover:bg-amber-100 transition-all cursor-pointer"
+                >
+                  {weapon}
+                </div>
+              ))}
+            </div>
+          </details>
+          <div className="mt-4 p-3 border border-amber-200 rounded-md bg-amber-50">
+            <p className="font-bold">Arma Atual:</p>
+            <p>Espada Longa (1d8)</p>
+            <p className="mt-2 text-sm">Alcance: 5 pés</p>
+          </div>
+        </InformationSection> */}
+
+        {/* <InformationSection>
+          <h3>Equipamento de Mão</h3>
+          <details className="group">
+            <summary className="flex justify-between items-center cursor-pointer list-none p-2 rounded-md hover:bg-amber-50 transition-all">
+              <span className="font-bold">Selecionar Equipamento</span>
+              <span className="transform group-open:rotate-180 transition-transform">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                </svg>
+              </span>
+            </summary>
+            <div className="mt-2 space-y-2 pl-4">
+              {[
+                "Nenhum",
+                "Escudo Leve (+1 CA)",
+                "Escudo Pesado (+2 CA)",
+                "Lanterna",
+                "Símbolo Sagrado",
+                "Orbe Arcano",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="p-2 rounded-md hover:bg-amber-100 transition-all cursor-pointer"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </details>
+          <div className="mt-4 p-3 border border-amber-200 rounded-md bg-amber-50">
+            <p className="font-bold">Equipamento Atual:</p>
+            <p>Escudo Leve (+1 CA)</p>
+            <p className="mt-2 text-sm">Bônus já aplicado à CA</p>
+          </div>
+        </InformationSection> */}
+      </div>
+
+      {/* <InformationSection>
         <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2 flex items-center">
           <span className="material-symbols-outlined mr-2">fitness_center</span>
           Perícias
@@ -222,151 +337,7 @@ const CharacterSheep = () => {
             </div>
           </div>
         </div>
-      </InformationSection>
-
-      <InformationSection>
-        <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2 flex items-center">
-          <span className="material-symbols-outlined mr-2">swords</span>
-          Ataques e Armas
-        </h3>
-        <div className="space-y-3">
-          <div className="p-3 bg-indigo-800 bg-opacity-40 rounded border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/10 hover:shadow-md transition-all">
-            <div className="flex justify-between items-center">
-              <h4 className="text-lg font-semibold text-white">
-                Cinzabrasa{" "}
-                <span className="text-xs text-indigo-300">
-                  (Espada Longa +2)
-                </span>
-              </h4>
-              <div className="flex space-x-2">
-                <span className="px-2 py-1 bg-amber-700 text-amber-100 text-xs rounded">
-                  Corpo-a-corpo
-                </span>
-                <span className="px-2 py-1 bg-indigo-700 text-indigo-100 text-xs rounded">
-                  Mágica
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-2 mt-2">
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Ataque</span>
-                <span className="text-white font-bold">+15</span>
-              </div>
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Dano</span>
-                <span className="text-white font-bold">1d8+6</span>
-              </div>
-              <div className="text-center">
-                <span className="text-xs text-gray-300 block">Crítico</span>
-                <span className="text-white font-bold">19-20/x2</span>
-              </div>
-            </div>
-            <div className="mt-2 text-xs text-amber-300">
-              <span className="font-semibold">Especial:</span> Causa +1d6 de
-              dano de fogo
-            </div>
-          </div>
-
-          <div className="p-3 bg-indigo-800 bg-opacity-40 rounded border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/10 hover:shadow-md transition-all">
-            <div className="flex justify-between items-center">
-              <h4 className="text-lg font-semibold text-white">
-                Arco Longo Composto
-              </h4>
-              <div className="flex space-x-2">
-                <span className="px-2 py-1 bg-blue-700 text-blue-100 text-xs rounded">
-                  Distância
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-4 gap-2 mt-2">
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Ataque</span>
-                <span className="text-white font-bold">+11</span>
-              </div>
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Dano</span>
-                <span className="text-white font-bold">1d8+4</span>
-              </div>
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Crítico</span>
-                <span className="text-white font-bold">x3</span>
-              </div>
-              <div className="text-center">
-                <span className="text-xs text-gray-300 block">Alcance</span>
-                <span className="text-white font-bold">30m</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="p-3 bg-indigo-800 bg-opacity-40 rounded border border-indigo-600 hover:border-amber-500 hover:shadow-amber-500/10 hover:shadow-md transition-all">
-            <div className="flex justify-between items-center">
-              <h4 className="text-lg font-semibold text-white">Adaga</h4>
-              <div className="flex space-x-2">
-                <span className="px-2 py-1 bg-amber-700 text-amber-100 text-xs rounded">
-                  Corpo-a-corpo
-                </span>
-                <span className="px-2 py-1 bg-blue-700 text-blue-100 text-xs rounded">
-                  Arremesso
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-4 gap-2 mt-2">
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Ataque</span>
-                <span className="text-white font-bold">+13</span>
-              </div>
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Dano</span>
-                <span className="text-white font-bold">1d4+4</span>
-              </div>
-              <div className="text-center border-r border-indigo-700">
-                <span className="text-xs text-gray-300 block">Crítico</span>
-                <span className="text-white font-bold">19-20/x2</span>
-              </div>
-              <div className="text-center">
-                <span className="text-xs text-gray-300 block">Alcance</span>
-                <span className="text-white font-bold">6m</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </InformationSection>
-
-      <div className="grid grid-cols-2 gap-4">
-        <InformationSection>
-          <h3 className="text-xl font-bold text-amber-400 mb-3 border-b border-indigo-700 pb-2 flex items-center">
-            <span className="material-symbols-outlined mr-2">shield</span>
-            Equipamentos e Proteções
-          </h3>
-          <div className="space-y-2">
-            <div className="p-2 bg-indigo-800 bg-opacity-40 rounded flex justify-between items-center hover:bg-indigo-800 transition-colors">
-              <div>
-                <span className="text-white font-medium">
-                  Brunea de Placas +1
-                </span>
-                <div className="text-xs text-indigo-300">Armadura Pesada</div>
-              </div>
-              <div className="text-right">
-                <span className="text-white font-medium">CA +9</span>
-                <div className="text-xs text-indigo-300">
-                  Pen. -5, Max Des +1
-                </div>
-              </div>
-            </div>
-
-            <div className="p-2 bg-indigo-800 bg-opacity-40 rounded flex justify-between items-center hover:bg-indigo-800 transition-colors">
-              <div>
-                <span className="text-white font-medium">Escudo de Aço +1</span>
-                <div className="text-xs text-indigo-300">Escudo Pesado</div>
-              </div>
-              <div className="text-right">
-                <span className="text-white font-medium">CA +3</span>
-                <div className="text-xs text-indigo-300">Pen. -2</div>
-              </div>
-            </div>
-          </div>
-        </InformationSection>
-      </div>
+      </InformationSection> */}
     </CharacterContainer>
   );
 };
