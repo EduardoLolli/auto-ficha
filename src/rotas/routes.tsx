@@ -13,8 +13,8 @@ const Rotas = () => {
     <BrowserRouter>
       <AutoFichaProvider>
         <Routes>
-          <Route path="/" element />
-          <Route path="/cha" element={<CharacterSelection />}></Route>
+          <Route path="/" element={<LoginPage/>} />
+          <Route path="/home" element={<CharacterSelection />}></Route>
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/biografia"

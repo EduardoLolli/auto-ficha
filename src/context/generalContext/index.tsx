@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo, useEffect } from "react";
-import {  IPersonagem } from "./interface";
+import { IPersonagem } from "./interface";
 import axios from "axios";
 
 interface IAutoFichaContext {
@@ -18,6 +18,24 @@ export const AutoFichaProvider = ({
   const [character, setCharacter] = useState<IPersonagem | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const verifyToken = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const URL = "http://af-laravel-api.test/api/user";
+      try {
+        const response = await axios.get(URL, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    console.log('não existe')
+  };
+
   const handleGetCharacter = async (): Promise<void> => {
     const URL = "http://localhost:3000/data";
     try {
@@ -25,13 +43,13 @@ export const AutoFichaProvider = ({
       setCharacter(response.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
     }
   };
 
   useEffect(() => {
     handleGetCharacter();
+    verifyToken();
   }, []);
 
   const value: IAutoFichaContext = useMemo(
