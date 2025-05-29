@@ -1,13 +1,13 @@
 import "./style.css";
-import HomeHeader from "../../components/homeComponents/homeHeader";
-import HomeFooter from "../../components/homeComponents/homeFooter";
 import StyledHomePage from "../../styles/components/homePage";
-import HomeMain from "../../components/homeComponents/homeMain";
+import HomeMain from "../../components/GeneralComponents/homeMain";
+import HomeFooter from "../../components/GeneralComponents/homeFooter";
+import GenericHeader from "../../components/GeneralComponents/homeHeader";
 
 const HomePage = ({ children }: { children: React.ReactNode }) => {
   return (
     <StyledHomePage id="webcrumbs">
-      <HomeHeader></HomeHeader>
+      <GenericHeader></GenericHeader>
 
       <HomeMain>{children}</HomeMain>
 

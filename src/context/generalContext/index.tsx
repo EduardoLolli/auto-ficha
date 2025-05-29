@@ -1,6 +1,7 @@
 import { createContext, useState, useMemo, useEffect } from "react";
 import { IPersonagem } from "./interface";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface IAutoFichaContext {
   character: IPersonagem | null;
@@ -17,23 +18,26 @@ export const AutoFichaProvider = ({
 }) => {
   const [character, setCharacter] = useState<IPersonagem | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   const verifyToken = async () => {
     const token = localStorage.getItem("token");
     if (token) {
-      const URL = "http://af-laravel-api.test/api/user";
+      const URL = "http://af-laravel-api.test/api/me";
       try {
         const response = await axios.get(URL, {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
         console.log(response);
       } catch (error) {
         console.error(error);
       }
+    } else {
+      navigate("/login");
     }
-    console.log('não existe')
+    console.log("não existe");
   };
 
   const handleGetCharacter = async (): Promise<void> => {

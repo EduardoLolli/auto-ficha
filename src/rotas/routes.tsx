@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AutoFichaProvider } from "../context/generalContext";
 import HomePage from "../pages/homePage";
-import CharacterSelection from "../components/characterSelection";
 import LoginPage from "../pages/loginPage";
 import CharacterBio from "../components/characterBio";
 import CharacterSheep from "../components/characterSheep";
 import CharacterGrimoire from "../components/characterGrimoire";
 import CharacterSkills from "../components/characterSkills";
+import CharacterSelection from "../components/characterSelection";
 
 const Rotas = () => {
   return (
     <BrowserRouter>
       <AutoFichaProvider>
         <Routes>
-          <Route path="/" element={<LoginPage/>} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<CharacterSelection />}></Route>
           <Route path="/login" element={<LoginPage />} />
           <Route

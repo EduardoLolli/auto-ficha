@@ -1,147 +1,69 @@
-import CharacterSeleCard from "../characterSeleCard";
-import "./style.css";
-
-const personagens = [
-  {
-    name: "Eldrin",
-    class: "Mago",
-    level: 8,
-    image:
-      "https://images.unsplash.com/photo-1513001900722-370f803f498d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "auto_fix_high",
-    stats: {
-      força: 25,
-      agilidade: 40,
-      inteligência: 95,
-      constituição: 30,
-      sabedoria: 85,
-      carisma: 60,
-    },
-  },
-  {
-    name: "Thorne",
-    class: "Guerreiro",
-    level: 9,
-    image:
-      "https://images.unsplash.com/photo-1565316151047-153c2e5c0925?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "shield",
-    stats: {
-      força: 90,
-      agilidade: 65,
-      inteligência: 40,
-      constituição: 85,
-      sabedoria: 45,
-      carisma: 50,
-    },
-  },
-  {
-    name: "Lyra",
-    class: "Arqueira",
-    level: 7,
-    image:
-      "https://images.unsplash.com/photo-1614813651404-f3ece3f6cc89?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "arrow_outward",
-    stats: {
-      força: 60,
-      agilidade: 95,
-      inteligência: 55,
-      constituição: 45,
-      sabedoria: 65,
-      carisma: 70,
-    },
-  },
-  {
-    name: "Grimm",
-    class: "Bárbaro",
-    level: 8,
-    image:
-      "https://images.unsplash.com/photo-1566582170255-4fc7a577f10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "fitness_center",
-    stats: {
-      força: 95,
-      agilidade: 50,
-      inteligência: 25,
-      constituição: 90,
-      sabedoria: 30,
-      carisma: 35,
-    },
-  },
-  {
-    name: "Seraphina",
-    class: "Sacerdotisa",
-    level: 6,
-    image:
-      "https://images.unsplash.com/photo-1567113463300-102a7eb3cb26?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "psychiatry",
-    stats: {
-      força: 30,
-      agilidade: 45,
-      inteligência: 75,
-      constituição: 40,
-      sabedoria: 90,
-      carisma: 85,
-    },
-  },
-  {
-    name: "Raven",
-    class: "Ladina",
-    level: 7,
-    image:
-      "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    icon: "vpn_key",
-    stats: {
-      força: 45,
-      agilidade: 90,
-      inteligência: 60,
-      constituição: 35,
-      sabedoria: 50,
-      carisma: 75,
-    },
-  },
-];
+import CharacterCard from "./CharacterCard";
+import GenericHeader from "../GeneralComponents/homeHeader/index";
+import { CharacterSelectionContainer } from "./styled";
 
 const CharacterSelection = () => {
-  const handleLogout = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      localStorage.removeItem("token");
-    }
-  };
+  // const navigate = useNavigate();
+
+  // const handleLogout = () => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     localStorage.removeItem("token");
+  //     localStorage.removeItem("userId");
+  //     localStorage.removeItem("userName");
+  //     navigate("/login");
+  //   }
+  // };
 
   return (
-    <div id="webcrumbs">
-      <div>
-        <main className="relative z-10 flex flex-col items-center">
-          <h2 className="text-3xl font-bold text-white mb-8 tracking-wide">
-            Escolha seu Personagem
-          </h2>
+    <CharacterSelectionContainer className="">
+      <GenericHeader />
 
-          <div className="grid grid-cols-3 gap-8 mb-12">
-            {personagens.map((character) => (
-              <CharacterSeleCard character={character}></CharacterSeleCard>
-            ))}
-          </div>
+      <div className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4 text-center">
+          Select Your Character
+        </h2>
+        <p className="text-center text-gray-300 mb-8">
+          Choose your hero or create a new legend to begin your adventure
+        </p>
 
-          <div className="flex justify-center space-x-4">
-            <button className="px-6 py-3 bg-indigo-700 text-white rounded-md hover:bg-indigo-600 transition-colors duration-300 flex items-center hover:shadow-lg hover:shadow-indigo-700/50 transform hover:-translate-y-1">
-              <span className="material-symbols-outlined mr-2">add</span>
-              Criar Novo Personagem
-            </button>
-            <button className="px-6 py-3 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-colors duration-300 flex items-center hover:shadow-lg hover:shadow-purple-700/50 transform hover:-translate-y-1">
-              <span className="material-symbols-outlined mr-2">download</span>
-              Importar Personagem
-            </button>
-            <button
-              onClick={() => handleLogout()}
-              className="px-6 py-3 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-colors duration-300 flex items-center hover:shadow-lg hover:shadow-purple-700/50 transform hover:-translate-y-1"
-            >
-              <span className="material-symbols-outlined mr-2">logout</span>
-              Sair
-            </button>
-          </div>
-        </main>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Character Card 1 */}
+          <CharacterCard />
+        </div>
       </div>
-    </div>
+
+      <div className="flex flex-col md:flex-row justify-center gap-6 mt-12">
+        <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-primary-600 to-primary-500 px-8 py-4 rounded-xl shadow-lg hover:shadow-primary-500/40 transition-all transform hover:-translate-y-1 font-bold text-lg">
+          <span className="material-symbols-outlined">add_circle</span>
+          Create New Character
+        </button>
+        <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-purple-500 px-8 py-4 rounded-xl shadow-lg hover:shadow-purple-500/40 transition-all transform hover:-translate-y-1 font-bold text-lg">
+          <span className="material-symbols-outlined">file_upload</span>
+          Import Character
+        </button>
+        <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-gray-700 to-gray-600 px-8 py-4 rounded-xl shadow-lg hover:shadow-gray-600/40 transition-all transform hover:-translate-y-1 font-bold text-lg">
+          <span className="material-symbols-outlined">logout</span>
+          Exit Game
+        </button>
+      </div>
+
+      <footer className="mt-16 text-center text-gray-400 text-sm">
+        <p>Mythic Quest RPG System &copy; 2023 - All rights reserved</p>
+        <div className="flex justify-center gap-4 mt-4">
+          <button className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary-600 transition-all">
+            <i className="fa-brands fa-discord"></i>
+          </button>
+          <button className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary-600 transition-all">
+            <i className="fa-brands fa-reddit-alien"></i>
+          </button>
+          <button className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary-600 transition-all">
+            <i className="fa-brands fa-twitter"></i>
+          </button>
+        </div>
+        {/* Next: "Add privacy policy and terms of service links" */}
+      </footer>
+    </CharacterSelectionContainer>
   );
 };
 
