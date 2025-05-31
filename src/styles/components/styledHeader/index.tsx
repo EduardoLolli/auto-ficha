@@ -12,7 +12,7 @@ const StyledHeader = styled("header")`
     letter-spacing: -0.025em;
 
     .span-f {
-      color: #ffff00f2;
+      color: #34d399;
     }
     .span-s {
       font-size: 1rem;

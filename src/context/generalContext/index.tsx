@@ -23,21 +23,18 @@ export const AutoFichaProvider = ({
   const verifyToken = async () => {
     const token = localStorage.getItem("token");
     if (token) {
-      const URL = "http://af-laravel-api.test/api/me";
+      const URL = "http://af-laravel-api.test/api/user";
       try {
         const response = await axios.get(URL, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response);
       } catch (error) {
-        console.error(error);
       }
     } else {
       navigate("/login");
     }
-    console.log("não existe");
   };
 
   const handleGetCharacter = async (): Promise<void> => {

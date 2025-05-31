@@ -1,16 +1,28 @@
 import { StyledCharacterCard } from "./styledCharacterCard";
 
-const CharacterCard = () => {
+type CharacterCardProps = {
+  experience: number;
+  level: number;
+  money: number;
+  name: string;
+};
+
+const CharacterCard = ({
+  experience,
+  level,
+  money,
+  name,
+}: CharacterCardProps) => {
   return (
     <StyledCharacterCard>
       <div className="primary-info">
         <div className="title-container">
-          <h3 className="character-title">{}</h3>
+          <h3 className="character-title">{name}</h3>
         </div>
         <div className="info-container">
-          <p className="info-text">Level: {}</p>
-          <p className="info-text">Classe: {}</p>
-          <p className="info-text">Ancestralidade: {}</p>
+          <p className="info-text">Level: {level}</p>
+          <p className="info-text">Ouro: {money}</p>
+          <p className="info-text">Experiência: {experience}</p>
         </div>
       </div>
       {/* <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
@@ -40,9 +52,7 @@ const CharacterCard = () => {
         </div>
       </div> */}
 
-      <button className="chr-selec-button">
-        Select
-      </button>
+      <button className="chr-selec-button">Select</button>
       {/* Next: "Add character equipment preview" */}
     </StyledCharacterCard>
   );
