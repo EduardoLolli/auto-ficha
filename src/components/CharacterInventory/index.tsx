@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import GenericHeader from "../GeneralComponents/homeHeader";
 import { StyledInventory } from "./style";
 import CharacterBaseInfo from "./CharacterBaseInfo";
 import CharBodyItems from "./CharBodyItems";
+import axios from "axios";
+import { AutoFichaContext } from "../../context/generalContext";
 
 const CharacterInventory: React.FC = () => {
+  const { setCharacter, setLoading, character } = useContext(AutoFichaContext);
+
+  const handleGetCharacter = async (): Promise<void> => {
+    const URL = "http://af-laravel-api.test/api/character/loadcharbody";
+    const token = localStorage.getItem("token");
+    try {
+      const response = await axios.post(
+        URL,
+        { character_id: 24 },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setCharacter(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleGetCharacter();
+  }, []);
+
   return (
-    <StyledInventory className=" ">
+    <StyledInventory>
       <GenericHeader />
 
       <div className="inv-container">
@@ -16,7 +45,11 @@ const CharacterInventory: React.FC = () => {
           <div className="inv-char-body">
             <div className="char-body-container">
               <CharacterBaseInfo />
-              <CharBodyItems />
+
+              {character?.charBodyItems && (
+                <CharBodyItems bodyitems={character.charBodyItems} />
+              )}
+
             </div>
           </div>
 
@@ -31,7 +64,7 @@ const CharacterInventory: React.FC = () => {
             <div className="space-y-3 max-h-96 overflow-y-auto">
               <div className="flex items-center space-x-3 p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-all duration-300 cursor-pointer group">
                 <img
-                  src="https://images.unsplash.com/photo-1500930837254-64a75e2a13e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxoZWFsdGglMjBwb3Rpb258ZW58MHx8fHwxNzQ4NjI1NjI5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src=""
                   alt="Poção de Vida"
                   className="w-10 h-10 group-hover:scale-110 transition-transform duration-300"
                 />
@@ -44,7 +77,7 @@ const CharacterInventory: React.FC = () => {
 
               <div className="flex items-center space-x-3 p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-all duration-300 cursor-pointer group">
                 <img
-                  src="https://images.unsplash.com/photo-1626960915725-aa98d9258d3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxtYW5hJTIwcG90aW9ufGVufDB8fHx8MTc0ODYyNTY1MXww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src=""
                   alt="Poção de Mana"
                   className="w-10 h-10 group-hover:scale-110 transition-transform duration-300"
                 />

@@ -7,6 +7,7 @@ interface IAutoFichaContext {
   character: IPersonagem | null;
   setCharacter: React.Dispatch<React.SetStateAction<IPersonagem | null>>;
   loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const AutoFichaContext = createContext({} as IAutoFichaContext);
@@ -30,26 +31,14 @@ export const AutoFichaProvider = ({
             Authorization: `Bearer ${token}`,
           },
         });
-      } catch (error) {
-      }
+      } catch (error) {}
     } else {
       navigate("/login");
     }
   };
 
-  const handleGetCharacter = async (): Promise<void> => {
-    const URL = "http://localhost:3000/data";
-    try {
-      const response = await axios.get(URL);
-      setCharacter(response.data);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    handleGetCharacter();
+    // handleGetCharacter();
     verifyToken();
   }, []);
 
@@ -58,13 +47,14 @@ export const AutoFichaProvider = ({
       character,
       setCharacter,
       loading,
+      setLoading,
     }),
     [character, loading]
   );
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <AutoFichaContext.Provider value={value}>
