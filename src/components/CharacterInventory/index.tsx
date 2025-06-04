@@ -7,7 +7,7 @@ import axios from "axios";
 import { AutoFichaContext } from "../../context/generalContext";
 
 const CharacterInventory: React.FC = () => {
-  const { setCharacter, setLoading, character } = useContext(AutoFichaContext);
+  const { setBodyItems, setLoading, bodyItems } = useContext(AutoFichaContext);
 
   const handleGetCharacter = async (): Promise<void> => {
     const URL = "http://af-laravel-api.test/api/character/loadcharbody";
@@ -22,7 +22,7 @@ const CharacterInventory: React.FC = () => {
           },
         }
       );
-      setCharacter(response.data);
+      setBodyItems(response.data);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -46,14 +46,14 @@ const CharacterInventory: React.FC = () => {
             <div className="char-body-container">
               <CharacterBaseInfo />
 
-              {character?.charBodyItems && (
-                <CharBodyItems bodyitems={character.charBodyItems} />
+              {bodyItems?.charBodyItems && (
+                <CharBodyItems bodyitems={bodyItems.charBodyItems} />
               )}
 
             </div>
           </div>
 
-          <div className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
+          {/* <div className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
             <h3 className="text-xl font-semibold mb-6 text-primary-300 flex items-center">
               <span className="material-symbols-outlined mr-2">
                 inventory_2
@@ -162,7 +162,7 @@ const CharacterInventory: React.FC = () => {
                 Vender
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Next: "Add character stats panel with strength, dexterity, intelligence attributes" */}

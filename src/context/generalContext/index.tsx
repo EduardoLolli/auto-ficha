@@ -4,8 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 interface IAutoFichaContext {
-  character: IPersonagem | null;
-  setCharacter: React.Dispatch<React.SetStateAction<IPersonagem | null>>;
+  bodyItems: IPersonagem | null;
+  setBodyItems: React.Dispatch<React.SetStateAction<IPersonagem | null>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -17,7 +17,7 @@ export const AutoFichaProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [character, setCharacter] = useState<IPersonagem | null>(null);
+  const [bodyItems, setBodyItems] = useState<IPersonagem | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
@@ -31,25 +31,32 @@ export const AutoFichaProvider = ({
             Authorization: `Bearer ${token}`,
           },
         });
-      } catch (error) {}
+
+        if (response.status !== 200) {
+          throw new Error("Usuário não autenticado");
+        }
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+        navigate("/login");
+      }
     } else {
       navigate("/login");
     }
   };
 
   useEffect(() => {
-    // handleGetCharacter();
     verifyToken();
   }, []);
 
   const value: IAutoFichaContext = useMemo(
     () => ({
-      character,
-      setCharacter,
+      bodyItems,
+      setBodyItems,
       loading,
       setLoading,
     }),
-    [character, loading]
+    [bodyItems, loading]
   );
 
   // if (loading) {

@@ -28,5 +28,9 @@ export const StyledCharBody = styled.div`
       border-color: #0ea5e9; /* primary-500 */
       box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.2);
     }
+
+    img {
+      border-radius: 0.5rem; /* rounded-lg */
+    }
   }
 `;

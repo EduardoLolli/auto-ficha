@@ -25,8 +25,6 @@ const LoginForm = () => {
       .post("http://af-laravel-api.test/api/auth/login", formData)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("userId", response.data.id);
-        localStorage.setItem("userName", response.data.name);
         console.log(response.data);
         nav("/home");
       })

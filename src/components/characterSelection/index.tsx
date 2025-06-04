@@ -16,7 +16,7 @@ const CharacterSelection = () => {
     name: string;
   }
 
-  const [chracterList, setCharacterList] = useState<Icharacters[]>([]);
+  const [chracterList, setBodyItemsList] = useState<Icharacters[]>([]);
 
   const link = "http://af-laravel-api.test/api/character/charactersfrom";
 
@@ -29,7 +29,7 @@ const CharacterSelection = () => {
         },
       });
       if (response.data) {
-        setCharacterList(response.data.data);
+        setBodyItemsList(response.data.data);
       }
     }
   };
