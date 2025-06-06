@@ -10,12 +10,11 @@ const CharacterInventory: React.FC = () => {
   const { setBodyItems, setLoading, bodyItems } = useContext(AutoFichaContext);
 
   const handleGetCharacter = async (): Promise<void> => {
-    const URL = "http://af-laravel-api.test/api/character/loadcharbody";
+    const URL = "http://af-laravel-api.test/api/character/loadcharbody/1";
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.post(
+      const response = await axios.get(
         URL,
-        { character_id: 24 },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -49,7 +48,6 @@ const CharacterInventory: React.FC = () => {
               {bodyItems?.charBodyItems && (
                 <CharBodyItems bodyitems={bodyItems.charBodyItems} />
               )}
-
             </div>
           </div>
 
