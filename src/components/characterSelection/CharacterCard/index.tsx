@@ -1,60 +1,77 @@
-import { StyledCharacterCard } from "./styledCharacterCard";
+import { Users } from "lucide-react";
+import { StyledCharCard } from "./style";
+import { Progress } from "../Progress";
+import { Character } from "../../../pages/CharacterSelection";
 
 type CharacterCardProps = {
-  experience: number;
-  level: number;
-  money: number;
-  name: string;
+  character: Character;
+  selectedCharacter: string | null;
+  setSelectedCharacter: (id: string) => void;
 };
 
 const CharacterCard = ({
-  experience,
-  level,
-  money,
-  name,
+  character,
+  selectedCharacter,
+  setSelectedCharacter,
 }: CharacterCardProps) => {
   return (
-    <StyledCharacterCard>
-      <div className="primary-info">
-        <div className="title-container">
-          <h3 className="character-title">{name}</h3>
-        </div>
-        <div className="info-container">
-          <p className="info-text">Level: {level}</p>
-          <p className="info-text">Ouro: {money}</p>
-          <p className="info-text">Experiência: {experience}</p>
+    <StyledCharCard
+      key={character.id}
+      className={`char-card ${
+        selectedCharacter === character.id ? "selected-card" : "hover-card"
+      }`}
+      onClick={() => setSelectedCharacter(character.id)}
+    >
+      <div className="card-header">
+        <div className="card-char-name">{character.name}</div>
+        <div className="card-char-desc">{character.description}</div>
+      </div>
+
+      <div className="card-atrib">
+        {/* Stats */}
+        <div className="card-atrib-stats">
+          <h4 className="card-atrib-title">
+            <Users className="card-atrib-icon" />
+            Atributos
+          </h4>
+
+          <div className="card-stats">
+            {Object.entries(character.stats).map(([stat, value]) => (
+              <div key={stat} className="card-stats-div">
+                <span className="card-stats-span">
+                  {stat === "força" && "Força"}
+                  {stat === "destreza" && "Destreza"}
+                  {stat === "inteligencia" && "Inteligência"}
+                  {stat === "carisma" && "Carisma"}
+                  {stat === "constituição" && "Constituição"}
+                  {stat === "sabedoria" && "Sabedoria"}
+                </span>
+
+                <div className="card-line">
+                  <Progress value={value} />
+                  <span>{value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      {/* <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">STR</p>
-          <p className="font-bold">18</p>
-        </div>
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">DEX</p>
-          <p className="font-bold">12</p>
-        </div>
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">CON</p>
-          <p className="font-bold">16</p>
-        </div>
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">INT</p>
-          <p className="font-bold">10</p>
-        </div>
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">WIS</p>
-          <p className="font-bold">14</p>
-        </div>
-        <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-center">
-          <p className="text-xs text-gray-400">CHA</p>
-          <p className="font-bold">13</p>
-        </div>
-      </div> */}
-
-      <button className="chr-selec-button">Select</button>
-      {/* Next: "Add character equipment preview" */}
-    </StyledCharacterCard>
+      <div>
+        <button
+          className={`char-sele-button ${
+            selectedCharacter === character.id
+              ? "selected-button"
+              : "unselected-button"
+          }`}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCharacter(character.id);
+          }}
+        >
+          {selectedCharacter === character.id ? "Selecionado" : "Selecionar"}
+        </button>
+      </div>
+    </StyledCharCard>
   );
 };
 

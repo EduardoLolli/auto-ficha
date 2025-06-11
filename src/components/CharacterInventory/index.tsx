@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import GenericHeader from "../GeneralComponents/homeHeader";
+import GenericHeader from "../GeneralComponents/Header";
 import { StyledInventory } from "./style";
 import CharacterBaseInfo from "./CharacterBaseInfo";
 import CharBodyItems from "./CharBodyItems";

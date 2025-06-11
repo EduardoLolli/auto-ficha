@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AutoFichaProvider } from "../context/generalContext";
 import LoginPage from "../pages/loginPage";
-import CharacterSelection from "../components/characterSelection";
 import CharacterInventory from "../components/CharacterInventory";
+import CharacterSelection from "../pages/CharacterSelection";
 
 const Rotas = () => {
   return (
