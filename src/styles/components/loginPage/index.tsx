@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import img from "../../../assets/loginBackground/wallpaper.png";
 const StyledLoginPage = styled("div")`
   @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
   @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
@@ -37,12 +37,16 @@ const StyledLoginPage = styled("div")`
 
     /* Infernal e demoníaco */
 
-    background: linear-gradient(
+    background-image: url(${img});
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* background: linear-gradient(
       var(--gradient-direction, to right),
       #7f1d1d,
       #b91c1c,
       #a78501
-    );
+    ); */
 
     /* Reino celestial */
 
