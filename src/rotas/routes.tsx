@@ -3,7 +3,6 @@ import { AutoFichaProvider } from "../context/generalContext";
 import LoginPage from "../pages/loginPage";
 import CharacterSelection from "../pages/CharacterSelection";
 import InventoryPage from "../pages/Inventory";
-import InventorySection from "../components/CharacterInventory/InventorySection";
 
 const Rotas = () => {
   return (
@@ -14,7 +13,6 @@ const Rotas = () => {
           <Route path="/home" element={<CharacterSelection />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/inventory" element={<InventoryPage />} />
-          <Route path="/equiped" element={<InventorySection />} />
         </Routes>
       </AutoFichaProvider>
     </BrowserRouter>
