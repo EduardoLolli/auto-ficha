@@ -2,6 +2,7 @@ import { createContext, useState, useMemo, useEffect } from "react";
 import { IPersonagem } from "./interface";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 interface IAutoFichaContext {
   bodyItems: IPersonagem | null;
@@ -47,6 +48,7 @@ export const AutoFichaProvider = ({
 
   useEffect(() => {
     verifyToken();
+    setLoading(false)
   }, []);
 
   const value: IAutoFichaContext = useMemo(
@@ -59,9 +61,9 @@ export const AutoFichaProvider = ({
     [bodyItems, loading]
   );
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <AutoFichaContext.Provider value={value}>

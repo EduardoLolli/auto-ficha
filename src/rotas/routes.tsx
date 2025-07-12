@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AutoFichaProvider } from "../context/generalContext";
 import LoginPage from "../pages/loginPage";
-import CharacterInventory from "../components/CharacterInventory";
 import CharacterSelection from "../pages/CharacterSelection";
+import InventoryPage from "../pages/Inventory";
+import InventorySection from "../components/CharacterInventory/InventorySection";
 
 const Rotas = () => {
   return (
@@ -10,9 +11,10 @@ const Rotas = () => {
       <AutoFichaProvider>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/home" element={<CharacterSelection />}></Route>
+          <Route path="/home" element={<CharacterSelection />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/inventory" element={<CharacterInventory />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/equiped" element={<InventorySection />} />
         </Routes>
       </AutoFichaProvider>
     </BrowserRouter>
