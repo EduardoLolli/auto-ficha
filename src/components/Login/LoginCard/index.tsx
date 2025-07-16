@@ -3,6 +3,7 @@ import { CardHeader, LoginForm, StyledLoginCard } from "./style";
 import { Lock, User } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { IResponse } from "../../../context/generalContext/interface";
 
 const LoginCard = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,21 +16,24 @@ const LoginCard = () => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 200));
 
-    await axios
-      .post("http://af-laravel-api.test/api/auth/login", {
-        email,
-        password,
-      })
-      .then(
-      nav('/char')
-
-      )
-      .catch((error) => {
-        setError("Usuário ou senha incorretos");
-      });
-
+    try {
+      const response: IResponse = await axios.post(
+        "http://af-laravel-api.test/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        nav("/charSele");
+      }
+    } catch (err) {
+      console.log(err);
+      setError("Usuário ou senha incorretos");
+    }
     setIsLoading(false);
   };
 

@@ -15,6 +15,14 @@ export interface IPersonagem {
   charBodyItems: CharBodyItems;
 }
 
+export interface IResponse {
+  data: {
+    ok: boolean;
+    message: string;
+    token: string;
+  };
+}
+
 export interface IbodyItem {
   created_at: string;
   description: string;
