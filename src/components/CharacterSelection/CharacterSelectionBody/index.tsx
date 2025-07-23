@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ChSelectionBody } from "./style";
 import axios from "axios";
-import { StyledChSlCard } from "../CharacterCard/style";
+import CharacterCard from "../CharacterCard";
 
 const CharacterSelectionBody = () => {
   const token = localStorage.getItem("token");
@@ -38,7 +38,7 @@ const CharacterSelectionBody = () => {
       </div>
       <div className="Ch-card-container">
         {characters.map((character) => (
-          <StyledChSlCard key={character.id}>{character.name}</StyledChSlCard>
+          <CharacterCard key={character.id} />
         ))}
       </div>
     </ChSelectionBody>
