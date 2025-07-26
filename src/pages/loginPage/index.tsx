@@ -3,6 +3,7 @@ import LoginHeader from "../../components/Login/LoginHeader";
 import { StyledLogin } from "./style";
 
 const LoginPage = () => {
+
   return (
     <StyledLogin>
       <LoginHeader/>

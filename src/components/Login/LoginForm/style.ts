@@ -1,37 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLoginCard = styled.div`
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-`;
-
-export const CardHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  justify-content: center;
-  gap: 0.25rem;
-
-  .card-title {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #1e293b;
-  }
-
-  .card-p {
-    margin: 0;
-    margin-top: 4px;
-    text-align: center;
-    color: #475569;
-  }
-`;
-
-export const LoginForm = styled.form`
+export const StyledLoginForm = styled.form`
   display: flex;
   padding: 0px 24px 24px;
   flex-direction: column;
@@ -42,6 +11,14 @@ export const LoginForm = styled.form`
     align-items: center;
     padding: 1.5rem;
     padding-top: 0;
+  }
+
+  .card-p {
+    margin: 0;
+    margin-top: 4px;
+    text-align: center;
+    color: #475569;
+    font-size: 14px;
   }
 
   .input-section {
@@ -137,5 +114,16 @@ export const LoginForm = styled.form`
   .alert-p {
     margin: 0;
     font-size: 14px;
+  }
+
+  .span-reg {
+    transition: border 0.2s;
+    color: #0b3692ff;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 1px solid #2561e4ff;
+      color: #2561e4ff;
+    }
   }
 `;

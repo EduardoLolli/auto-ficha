@@ -5,7 +5,6 @@ import PlusIcon from "../../../icons/plus";
 
 const Attributes: React.FC = () => {
   const [newCharacter, setNewCharacter] = useState({
-    id: "",
     name: "",
     level: 1,
     class: "",
@@ -68,17 +67,15 @@ const Attributes: React.FC = () => {
                 max="20"
                 value={value}
                 readOnly // Torna o campo somente leitura, alterações via botões
-                className=""
               />
               <button
                 type="button"
-                className=""
                 disabled={value >= 20 || newCharacter.freeAttributePoints === 0}
               >
                 <PlusIcon className="" />
               </button>
             </div>
-            <p className="text-sm text-slate-500 mt-1">Mod:</p>
+            <p>Mod:</p>
           </div>
         ))}
       </div>

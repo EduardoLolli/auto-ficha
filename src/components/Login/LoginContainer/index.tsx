@@ -1,12 +1,17 @@
 import { StyledLoginContainer } from "./style";
 import LoginIcons from "../LoginIcons";
-import LoginCard from "../LoginCard";
+import { LoginForm } from "../LoginForm";
+import GenericCard from "../../SharedComponents/LoginRegisterCard";
 
 const LoginContainer = () => {
   return (
     <StyledLoginContainer>
       <LoginIcons />
-      <LoginCard />
+      <GenericCard
+        title="Entrar"
+        paragraph="Acesse sua conta para continuar"
+        children={<LoginForm />}
+      />
     </StyledLoginContainer>
   );
 };

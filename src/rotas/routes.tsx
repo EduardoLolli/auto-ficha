@@ -3,6 +3,7 @@ import { AutoFichaProvider } from "../context/generalContext";
 import LoginPage from "../pages/loginPage";
 import CharacterSelection from "../pages/CharacterSelection";
 import CharacterCreation from "../pages/CharacterCreation";
+import RegisterPage from "../pages/RegisterPage";
 
 const Rotas = () => {
   return (
@@ -11,6 +12,7 @@ const Rotas = () => {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/charSele" element={<CharacterSelection />} />
           <Route path="/createChar" element={<CharacterCreation />} />
         </Routes>
