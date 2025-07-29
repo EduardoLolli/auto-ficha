@@ -9,7 +9,7 @@ const RegisterPage: React.FC = () => {
   return (
     <StyledLogin>
       <LoginHeader />
-      <div>
+      <div className="page-div">
         <LoginIcons />
         <GenericCard
           title="Registrar"

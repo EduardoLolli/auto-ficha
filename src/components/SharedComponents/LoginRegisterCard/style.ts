@@ -6,6 +6,23 @@ export const StyledGenericCard = styled.div`
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
+  width: 550px;
+
+  @media (max-width: 1200px) {
+    width: 550px;
+  }
+
+  @media (max-width: 992px) {
+    width: 550px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 360px;
+  }
 `;
 
 export const CardHeader = styled.div`
