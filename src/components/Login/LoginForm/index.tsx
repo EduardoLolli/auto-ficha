@@ -31,7 +31,6 @@ export const LoginForm = () => {
         nav("/charSele");
       }
     } catch (err) {
-      console.log(err);
       setError("Usuário ou senha incorretos");
     }
     setIsLoading(false);

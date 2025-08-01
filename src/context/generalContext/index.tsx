@@ -23,8 +23,6 @@ export const AutoFichaProvider = ({
   const location = useLocation();
 
   const verifyToken = async () => {
-    console.log(location);
-
     if (location.pathname != "/login" && location.pathname != "/register") {
       const token = localStorage.getItem("token");
       if (token) {

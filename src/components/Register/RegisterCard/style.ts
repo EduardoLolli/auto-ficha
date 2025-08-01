@@ -17,7 +17,19 @@ export const StyledRegisterForm = styled.form`
       opacity: 0.7;
     }
   }
+  .alert {
+    border: 1px solid #fecaca;
+    background-color: #fef2f2;
+    padding: 16px;
+    border-radius: 5px;
+    margin: 16px 0 0;
+    color: #b91c1c;
+  }
 
+  .alert-p {
+    margin: 0;
+    font-size: 14px;
+  }
   .input-con {
     display: flex;
     flex-direction: column;
@@ -74,6 +86,25 @@ export const StyledRegisterForm = styled.form`
     gap: 1rem;
     @media (max-width: 500px) {
       flex-direction: column;
+    }
+  }
+
+  .card-p {
+    margin: 0;
+    margin-top: 4px;
+    text-align: center;
+    color: #475569;
+    font-size: 14px;
+  }
+
+  .span-reg {
+    transition: border 0.2s;
+    color: #0b3692ff;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 1px solid #2561e4ff;
+      color: #2561e4ff;
     }
   }
 `;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { RegisterButton, StyledRegisterForm } from "./style";
 import { Calendar, Lock, Mail, User } from "lucide-react";
-import EmailIcon from "../../../icons/email";
 import RegisterInputs from "../RegisterInputs";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,20 +23,11 @@ const RegisterCard: React.FC = () => {
     setIsLoading(true);
     setError("");
     await new Promise((resolve) => setTimeout(resolve, 200));
-    console.log(
-      username,
-      email,
-      password,
-      password_confirmation,
-      birth_date,
-      full_name,
-      gender
-    );
     try {
       const response: IResponse = await axios.post(
         "http://af-laravel-api.test/api/auth/register",
         {
-          username: username,
+          username,
           email,
           password,
           password_confirmation,
@@ -53,7 +43,7 @@ const RegisterCard: React.FC = () => {
       }
     } catch (err) {
       console.log(err);
-      setError("Usuário ou senha incorretos");
+      setError(`Erro ao criar conta: ${err}`);
     }
     setIsLoading(false);
   };
@@ -132,7 +122,11 @@ const RegisterCard: React.FC = () => {
           </select>
         </div>
       </div>
-
+      {error && (
+        <div className="alert">
+          <p className="alert-p">{error}</p>
+        </div>
+      )}
       <RegisterButton
         type="submit"
         disabled={isLoading}
@@ -140,6 +134,20 @@ const RegisterCard: React.FC = () => {
       >
         {isLoading ? "Registrando..." : "Registrar"}
       </RegisterButton>
+
+      <div>
+        <p className="card-p">
+          Já possui conta?{" "}
+          <span
+            className="span-reg"
+            onClick={() => {
+              nav("/login");
+            }}
+          >
+            Faça Login
+          </span>
+        </p>
+      </div>
     </StyledRegisterForm>
   );
 };

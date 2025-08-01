@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ChSelectionBody } from "./style";
 import axios from "axios";
 import CharacterCard from "../CharacterCard";
+import NewCharacterCard from "../NewCharacterCard";
 
 const CharacterSelectionBody = () => {
   const token = localStorage.getItem("token");
@@ -19,7 +20,6 @@ const CharacterSelectionBody = () => {
         );
 
         setCharacter(response.data.data);
-        console.log(characters);
       } catch (err) {
         console.log(err);
       }
@@ -40,6 +40,7 @@ const CharacterSelectionBody = () => {
         {characters.map((character) => (
           <CharacterCard key={character.id} />
         ))}
+        <NewCharacterCard />
       </div>
     </ChSelectionBody>
   );

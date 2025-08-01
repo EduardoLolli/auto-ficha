@@ -7,6 +7,9 @@ export const ChSelectionBody = styled.div`
   padding: 1.5rem;
   .title-container {
     margin-bottom: 32px;
+    @media (max-width: 1024px) {
+      text-align: center;
+    }
   }
   .title {
     font-size: 1.875rem;
@@ -23,14 +26,19 @@ export const ChSelectionBody = styled.div`
 
   .Ch-card-container {
     display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
     }
+
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 `;
