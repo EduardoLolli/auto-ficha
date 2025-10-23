@@ -17,11 +17,9 @@ const LoginForm = () => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.data.token);
-        console.log(response.data);
         nav("/home");
       })
-      .catch((erro) => {
-        console.log(erro);
+      .catch(() => {
       });
   };
 

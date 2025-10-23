@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Sword, Plus, KeyRound, } from "lucide-react"
 import { Button, ButtonGroup, CampaignsGrid, ContentWrapper, EmptyState, EmptyStateText, EmptyStateTitle, Header, PageContainer, Subtitle, Title } from "./style"
 import CampaignCard from "../../components/Dashboard/CampaignCard"
 import JoinCampaign from "../../components/Dashboard/JoinCampaign"
 import CampaignCreation from "../../components/Dashboard/CreateCampaignModal"
 import axios from "axios"
+import { AutoFichaContext } from "../../context/generalContext"
+import OpenCampaignModal from "../../components/Dashboard/OpenCampaignModal"
+import { useNavigate } from "react-router-dom"
 
 
 interface Campaign {
@@ -26,15 +29,14 @@ function generateCampaignCode(): string {
 }
 
 export default function CampaignDashboard() {
+    const { API_URL, userContext } = useContext(AutoFichaContext)
     const [campaigns, setCampaigns] = useState<Campaign[]>([
     ])
 
     useEffect(() => {
+        console.log("User Context:", userContext)
         const token = localStorage.getItem("token")
-        const apiUrl = import.meta.env.VITE_API_URL
-        if (!token) return
-
-        axios.get(`${apiUrl}/api/campaing/v1/getCampaignByMasterId/1`, {
+        axios.get(`${API_URL}/api/campaing/v1/getCampaignByMasterId/${userContext.user?.id}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -43,14 +45,16 @@ export default function CampaignDashboard() {
             .catch((e) => {
                 console.error("Error fetching campaigns:", e)
             })
-    }, [campaigns])
+    }, [])
 
 
+    const nav = useNavigate()
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
     const [isJoinDialogOpen, setIsJoinDialogOpen] = useState(false)
+    const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false)
+    const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null)
     const [joinCode, setJoinCode] = useState("")
     const [copiedCode, setCopiedCode] = useState<string | null>(null)
-
     const [newCampaign, setNewCampaign] = useState({
         name: "",
         description: "",
@@ -76,16 +80,27 @@ export default function CampaignDashboard() {
     const handleJoinWithCode = () => {
         const campaign = campaigns.find((c) => c.campaignCode.toUpperCase() === joinCode.toUpperCase())
         if (campaign) {
-            handleEnterCampaign(campaign.id.toString())
-            setJoinCode("")
+            setSelectedCampaign(campaign)
             setIsJoinDialogOpen(false)
+            setIsConfirmDialogOpen(true)
+            setJoinCode("")
         } else {
             alert("Código de campanha inválido!")
         }
     }
 
     const handleEnterCampaign = (campaignId: string) => {
-        console.log("[v0] Entering campaign:", campaignId)
+        const campaign = campaigns.find((c) => String(c.id) === campaignId)
+        if (campaign) {
+            setSelectedCampaign(campaign)
+            setIsConfirmDialogOpen(true)
+        }
+    }
+
+    const handleConfirmEnter = () => {
+        if (selectedCampaign) {
+            nav(`/campaign/${selectedCampaign.campaignCode}`)
+        }
     }
 
     const handleCopyCode = (code: string) => {
@@ -149,6 +164,12 @@ export default function CampaignDashboard() {
                 newCampaign={newCampaign}
                 setIsCreateDialogOpen={setIsCreateDialogOpen}
                 setNewCampaign={setNewCampaign}
+            />
+            <OpenCampaignModal
+                handleConfirmEnter={handleConfirmEnter}
+                isConfirmDialogOpen={isConfirmDialogOpen}
+                selectedCampaign={selectedCampaign!}
+                setIsConfirmDialogOpen={setIsConfirmDialogOpen}
             />
         </PageContainer>
     )

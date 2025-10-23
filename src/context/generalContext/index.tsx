@@ -8,6 +8,9 @@ import Loading from "../../components/Loading";
 interface IAutoFichaContext {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  userContext: IUserContext;
+  API_URL: string;
+  logOutUser: () => void;
 }
 
 export const AutoFichaContext = createContext({} as IAutoFichaContext);
@@ -37,15 +40,26 @@ export const AutoFichaProvider = ({
         setUserContext(response.data.data);
       }).catch(() => {
         logOutUser();
+      }).finally(() => {
+        setLoading(false);
       });
+    }
+    else {
+      logOutUser();
+      setLoading(false);
     }
 
   }
 
   useEffect(() => {
     verifyTokenIsValid();
-    setLoading(false)
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(userContext).length > 0) {
+      setUserContext(userContext);
+    }
+  }, [userContext]);
 
   const value: IAutoFichaContext = useMemo(
     () => ({

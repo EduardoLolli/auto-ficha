@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledLoading = styled.div`
   position: fixed;
   inset: 0;
-  background: linear-gradient(to bottom right, #111827, #1e293b, #111827);
+  background: linear-gradient(to bottom right, oklch(0.18 0.03 40), #3d2100ff, oklch(0.18 0.03 40));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@ export const StyledLoading = styled.div`
       width: 0.5rem;
       height: 0.5rem;
     }
-    color: #60a5fa;
+    color: #fa6060ff;
     opacity: 0.6;
   }
 
@@ -68,7 +68,7 @@ export const StyledLoading = styled.div`
     }
     border-width: 4px;
     border-style: solid;
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: rgba(246, 59, 59, 0.3);
     border-radius: 9999px;
     animation: spin 1s linear infinite;
     position: absolute;
@@ -104,7 +104,7 @@ export const StyledLoading = styled.div`
       width: 8rem;
       height: 8rem;
     }
-    background-color: #2563eb;
+    background-color: oklch(0.18 0.03 40);
     border-radius: 9999px;
     display: flex;
     align-items: center;
@@ -126,7 +126,7 @@ export const StyledLoading = styled.div`
   .shield-shine {
     position: absolute;
     inset: 0.5rem;
-    background-color: rgba(96, 165, 250, 0.2);
+    background-color: rgba(250, 96, 96, 0.2);
     border-radius: 9999px;
     animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
@@ -149,7 +149,7 @@ export const StyledLoading = styled.div`
       width: 1.25rem;
       height: 1.25rem;
     }
-    color: #93c5fd;
+    color: #fd9393ff;
   }
 
   .user-icon {
@@ -163,7 +163,7 @@ export const StyledLoading = styled.div`
       width: 1.25rem;
       height: 1.25rem;
     }
-    color: #93c5fd;
+    color: #fd9393ff;
   }
 
   .crown-icon {
@@ -177,7 +177,7 @@ export const StyledLoading = styled.div`
       width: 1.25rem;
       height: 1.25rem;
     }
-    color: #93c5fd;
+    color: #fd9393ff;
   }
 
   .sparkles-icon {
@@ -191,7 +191,7 @@ export const StyledLoading = styled.div`
       width: 1.25rem;
       height: 1.25rem;
     }
-    color: #93c5fd;
+    color: #fd9393ff;
   }
 
   @keyframes spin {
@@ -234,7 +234,7 @@ export const StyledLoading = styled.div`
       font-size: 2.25rem;
     }
     font-weight: 700;
-    color: #dbeafe;
+    color: #fedbdbff;
     margin-bottom: 0.5rem;
     @media (min-width: 640px) {
       margin-bottom: 1rem;
@@ -252,7 +252,7 @@ export const StyledLoading = styled.div`
       @media (min-width: 640px) {
         font-size: 1.125rem;
       }
-      color: #93c5fd;
+      color: #fd9393ff;
       margin-bottom: 0.5rem;
     }
   }
@@ -265,7 +265,7 @@ export const StyledLoading = styled.div`
 
     p {
       font-size: 0.75rem;
-      color: #60a5fa;
+      color: #fa6060ff;
       opacity: 0.6;
     }
   }
