@@ -1,7 +1,6 @@
 import StyledLoginPage from "../../styles/components/loginPage";
-import FeetNav from "../../components/login/feetNav";
-import LoginForm from "../../components/login/loginForm";
-import "./style.css";
+import FeetNav from "../../components/auth/feetNav";
+import LoginForm from "../../components/auth";
 
 const LoginPage = () => {
   return (

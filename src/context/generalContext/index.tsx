@@ -1,12 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useState, useMemo, useEffect } from "react";
-import { IPersonagem } from "./interface";
+import { IUserContext } from "./interface";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
 
 interface IAutoFichaContext {
-  bodyItems: IPersonagem | null;
-  setBodyItems: React.Dispatch<React.SetStateAction<IPersonagem | null>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -18,47 +17,50 @@ export const AutoFichaProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [bodyItems, setBodyItems] = useState<IPersonagem | null>(null);
+  const API_URL = import.meta.env.VITE_API_URL;
   const [loading, setLoading] = useState<boolean>(true);
+  const [userContext, setUserContext] = useState<IUserContext>({} as IUserContext);
   const navigate = useNavigate();
 
-  const verifyToken = async () => {
+  function logOutUser() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+  function verifyTokenIsValid() {
     const token = localStorage.getItem("token");
     if (token) {
-      const URL = "http://af-laravel-api.test/api/user";
-      try {
-        const response = await axios.get(URL, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (response.status !== 200) {
-          throw new Error("Usuário não autenticado");
+      axios.get(`${API_URL}/api/auth`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
         }
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-        navigate("/login");
-      }
-    } else {
-      navigate("/login");
+      }).then(response => {
+        setUserContext(response.data.data);
+      }).catch(() => {
+        logOutUser();
+      });
     }
-  };
+
+  }
 
   useEffect(() => {
-    verifyToken();
+    verifyTokenIsValid();
     setLoading(false)
   }, []);
 
   const value: IAutoFichaContext = useMemo(
     () => ({
-      bodyItems,
-      setBodyItems,
       loading,
       setLoading,
+      userContext,
+      API_URL,
+      logOutUser
     }),
-    [bodyItems, loading]
+    [
+      loading,
+      userContext,
+      API_URL,
+      logOutUser
+    ]
   );
 
   if (loading) {

@@ -30,3 +30,12 @@ export interface IbodyItem {
   value: number;
   weight: number;
 }
+
+export interface IUserContext {
+  user?: {
+    id: number;
+    username: string;
+    role: string;
+    email: string;
+  };
+}

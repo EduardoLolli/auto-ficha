@@ -1,6 +1,5 @@
 "use client";
 
-import type React from "react";
 import { useEffect, useState } from "react";
 import GeneralHeader from "../../components/GeneralComponents/Header";
 import { StyledCharSelePage } from "./style";
@@ -69,13 +68,13 @@ export default function CharacterSelection() {
       {/* Character Grid */}
       <div className="char-containers">
         <div className="char-grid">
-            {characters &&
+          {characters &&
             (characters as Character[]).map((character: Character) => (
               <CharacterCard
-              key={character.id}
-              character={character}
-              selectedCharacter={selectedCharacter}
-              setSelectedCharacter={setSelectedCharacter}
+                key={character.id}
+                character={character}
+                selectedCharacter={selectedCharacter}
+                setSelectedCharacter={setSelectedCharacter}
               />
             ))}
         </div>
